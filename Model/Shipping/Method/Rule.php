@@ -2,8 +2,6 @@
 
 namespace ShoppingFeed\Manager\Model\Shipping\Method;
 
-use Magento\Framework\Api\AttributeValueFactory;
-use Magento\Framework\Api\ExtensionAttributesFactory;
 use Magento\Framework\Data\Collection\AbstractDb as AbstractCollection;
 use Magento\Framework\Data\FormFactory;
 use Magento\Framework\DataObject;
@@ -12,7 +10,6 @@ use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Model\Context;
 use Magento\Framework\Model\ResourceModel\AbstractResource;
 use Magento\Framework\Registry;
-use Magento\Framework\Serialize\Serializer\Json as JsonSerializer;
 use Magento\Framework\Stdlib\DateTime\TimezoneInterface;
 use Magento\Quote\Model\Quote;
 use Magento\Rule\Model\AbstractModel;
@@ -57,9 +54,6 @@ class Rule extends AbstractModel implements RuleInterface
      * @param AbstractResource|null $resource
      * @param AbstractCollection|null $resourceCollection
      * @param array $data
-     * @param ExtensionAttributesFactory|null $extensionFactory
-     * @param AttributeValueFactory|null $customAttributeFactory
-     * @param JsonSerializer|null $serializer
      */
     public function __construct(
         Context $context,
@@ -71,10 +65,7 @@ class Rule extends AbstractModel implements RuleInterface
         ApplierPoolInterface $applierPool,
         AbstractResource $resource = null,
         AbstractCollection $resourceCollection = null,
-        array $data = [],
-        ExtensionAttributesFactory $extensionFactory = null,
-        AttributeValueFactory $customAttributeFactory = null,
-        JsonSerializer $serializer = null
+        array $data = []
     ) {
         $this->dataObjectFactory = $dataObjectFactory;
         $this->combinedConditionFactory = $combinedConditionFactory;
@@ -87,10 +78,7 @@ class Rule extends AbstractModel implements RuleInterface
             $localeDate,
             $resource,
             $resourceCollection,
-            $data,
-            $extensionFactory,
-            $customAttributeFactory,
-            $serializer
+            $data
         );
     }
 

@@ -6,7 +6,7 @@ use Magento\Backend\Block\Template;
 use Magento\Backend\Block\Template\Context;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Registry;
-use Magento\Framework\Serialize\Serializer\Json as JsonSerializer;
+use ShoppingFeed\Manager\Helper\JsonSerializer;
 use Magento\Framework\View\Element\Messages as MessagesBlock;
 use ShoppingFeed\Manager\Api\Data\Account\StoreInterface as AccountStoreInterface;
 use ShoppingFeed\Manager\Block\Adminhtml\Feed\Product\Grid as ProductGrid;
@@ -28,6 +28,7 @@ class Wrapper extends Template
      * @var JsonSerializer
      */
     protected $jsonSerializer;
+
 
     /**
      * @var MessagesBlock|null
